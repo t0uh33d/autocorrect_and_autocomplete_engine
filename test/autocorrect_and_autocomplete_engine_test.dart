@@ -8,7 +8,7 @@ TrieEngine trieEngine = TrieEngine.fromList(
     File('/Users/codewave/Desktop/10k_words.txt').readAsLinesSync());
 void main() {
   test('auto complete', () {
-    print(trieEngine.autoComplete("marv"));
+    print(trieEngine.autoComplete('marv'));
   });
 
   test('auto complete suggestions', () {
@@ -16,11 +16,11 @@ void main() {
   });
 
   test('auto correct', () {
-    print(trieEngine.autoCorrect('marve'));
+    print(trieEngine.autoCorrect('marxvl'));
   });
 
   test('auto correct suggestions', () {
-    print(trieEngine.autoCorrectSuggestions('helikopta', count: 10));
+    print(trieEngine.autoCorrectSuggestions('marxvl', count: 10));
   });
 
   test('sorting', () {

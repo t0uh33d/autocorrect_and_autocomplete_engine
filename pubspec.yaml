@@ -1,11 +1,12 @@
 name: autocorrect_and_autocomplete_engine
-description: A new Flutter package project.
+description: A simple and efficient autocorrection and autocomplete engine built with Tries for Flutter.
 version: 0.0.1
-homepage:
+homepage: https://github.com/t0uh33d/autocorrect_and_autocomplete_engine
+repository: https://github.com/t0uh33d/autocorrect_and_autocomplete_engine
 
 environment:
-  sdk: '>=2.19.0-255.0.dev <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: ">=2.12.0 <3.0.0"
+  # flutter: ">=1.17.0"
 
 dependencies:
   flutter:

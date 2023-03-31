@@ -17,24 +17,26 @@ class TrieEngine {
   final SplayTreeMap<int, List<String>> _priorityMp =
       SplayTreeMap<int, List<String>>();
 
+  List<String>? _list;
+
   /// The constuctor for [TrieEngine] which takes in an array of string
   /// and inserts all the strings into our Trie
-  TrieEngine({List<String>? src}) {
-    if (src == null) return;
+  TrieEngine({required List<String> src}) {
+    _list = src;
     for (int idx = 0; idx < src.length; idx++) {
       insertWord(src[idx]);
     }
   }
 
-  /// [TrieEngine.fromList] is a factory method to create a [TrieEngine] from an array
-  /// of strings
-  factory TrieEngine.fromList(List<String> src) {
-    TrieEngine t = TrieEngine();
-    for (int idx = 0; idx < src.length; idx++) {
-      t.insertWord(src[idx]);
-    }
-    return t;
-  }
+  // /// [TrieEngine.fromList] is a factory method to create a [TrieEngine] from an array
+  // /// of strings
+  // factory TrieEngine.fromList(List<String> src) {
+  //   TrieEngine t = TrieEngine();
+  //   for (int idx = 0; idx < src.length; idx++) {
+  //     t.insertWord(src[idx]);
+  //   }
+  //   return t;
+  // }
 
   /// get all the word occurences and count present in the trie
   Map<String, int> getAllOccurences() => _mp;
@@ -84,7 +86,8 @@ class TrieEngine {
     word = word.sanitizeString;
     if (_mp.containsKey(word)) return null;
     _priorityMp.clear();
-    List<String> res = autoCompleteSuggestions(word[0]);
+    // List<String> res = autoCompleteSuggestions(word[0]);
+    List<String> res = _list!;
     for (int idx = 0; idx < res.length; idx++) {
       int dx = _getLevenshteinDistance(res[idx], word);
       if (_priorityMp.containsKey(dx)) {
@@ -103,7 +106,7 @@ class TrieEngine {
     word = word.sanitizeString;
     if (_mp.containsKey(word)) return [];
     _priorityMp.clear();
-    List<String> res = autoCompleteSuggestions(word[0]);
+    List<String> res = _list!;
     for (int idx = 0; idx < res.length; idx++) {
       int dx = _getLevenshteinDistance(res[idx], word);
       if (_priorityMp.containsKey(dx)) {

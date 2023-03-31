@@ -1,11 +1,10 @@
-// ignore_for_file: avoid_print
 import 'dart:io';
 
 import 'package:autocorrect_and_autocomplete_engine/autocorrect_and_autocomplete_engine.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-TrieEngine trieEngine = TrieEngine.fromList(
-    File('/Users/codewave/Desktop/10k_words.txt').readAsLinesSync());
+TrieEngine trieEngine =
+    TrieEngine(src: File('../../../10k_words.txt').readAsLinesSync());
 void main() {
   test('auto complete', () {
     print(trieEngine.autoComplete('marv'));
@@ -16,7 +15,7 @@ void main() {
   });
 
   test('auto correct', () {
-    print(trieEngine.autoCorrect('marxvl'));
+    print(trieEngine.autoCorrect('narvel'));
   });
 
   test('auto correct suggestions', () {
@@ -38,7 +37,7 @@ void main() {
     ];
     String sortedStr = arr.join().replaceAll(' ', '').toLowerCase();
     arr.shuffle();
-    TrieEngine trieEngine = TrieEngine.fromList(arr);
+    TrieEngine trieEngine = TrieEngine(src: arr);
     expect(trieEngine.toSortedList().join(), sortedStr);
   });
 }

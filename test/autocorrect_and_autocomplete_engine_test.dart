@@ -1,25 +1,34 @@
 import 'dart:io';
 
 import 'package:autocorrect_and_autocomplete_engine/autocorrect_and_autocomplete_engine.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 TrieEngine trieEngine =
     TrieEngine(src: File('../../../10k_words.txt').readAsLinesSync());
 void main() {
   test('auto complete', () {
-    print(trieEngine.autoComplete('marv'));
+    if (kDebugMode) {
+      print(trieEngine.autoComplete('marv'));
+    }
   });
 
   test('auto complete suggestions', () {
-    print(trieEngine.autoCompleteSuggestions('mar'));
+    if (kDebugMode) {
+      print(trieEngine.autoCompleteSuggestions('mar'));
+    }
   });
 
   test('auto correct', () {
-    print(trieEngine.autoCorrect('narvel'));
+    if (kDebugMode) {
+      print(trieEngine.autoCorrect('narvel'));
+    }
   });
 
   test('auto correct suggestions', () {
-    print(trieEngine.autoCorrectSuggestions('marxvl', count: 10));
+    if (kDebugMode) {
+      print(trieEngine.autoCorrectSuggestions('marxvl', count: 10));
+    }
   });
 
   test('sorting', () {

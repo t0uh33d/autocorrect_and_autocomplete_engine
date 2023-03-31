@@ -37,16 +37,12 @@ import 'package:autocorrect_and_autocomplete_engine/autocorrect_and_autocomplete
 
   ```dart
   TrieEngine trieEngine = TrieEngine(src : testData);
-
-  //or
-
-  TrieEngine trieEngine = TrieEngine.fromList(testData);
   ```
 
 - Initialize `TrieEngine` using the list of words in a [file](https://www.mit.edu/~ecprice/wordlist.10000)
 
   ```dart
-  TrieEngine trieEngine = TrieEngine.fromList(File('PATH_TO_FILE').readAsLinesSync());
+  TrieEngine trieEngine = TrieEngine(src : File('PATH_TO_FILE').readAsLinesSync());
   ```
 
 #### Inserting a new string
